@@ -1,5 +1,84 @@
 # Changelog
 
+
+# v 2.16 - 2023-09-03
+
+* Changes
+  * Port to OpenLayers 8
+  * Port to Cesium 1.109
+
+# v 2.15.2 - 2023-08-28
+
+* Changes
+  * Rewrite .ts and empty extensions to .js in olcs package
+
+# v 2.15.1 - 2023-08-24
+
+* Changes
+  * Ensure published olcs package only contains javascript (no typescript)
+  * Add computeDPIForPDF function to help creating pdfs with mapfish print
+  * Port to OL 7.5 and CesiumJS 1.108
+  * Fix changing style of MVTImageryProvider
+  * Fix panning and pinch movements
+* Deprecation
+  * computeRectangle and RectangleOutput should now be imported from printUtils
+
+# v 2.15 - 2023-07-26
+
+* Changes
+  * Add function to grab a screenshot from rendered Cesium globe (client side printing)
+  * Port to OL 7.4 and CesiumJS 1.107
+
+# v 2.14.0 - 2023-04-26
+
+* Breaking changes
+  * Use named exports
+
+* Changes
+  * port to CesiumJS 1.104 and OL 7.3
+
+# v 2.13 - 2021-05-20
+
+* Changes
+  * Port to CesiumJS 1.81
+  * Port dev environment to webpack5
+  * Copy canvas image when cloning overlay
+  * Use tile fonction in MVT imagery provider (handle minus, ...)
+
+# v 2.12 - 2021-01-18
+
+* Changes
+  * Delete the obsolete plugins directory.
+  * Add MVTImageryProvider, an experimental Cesium imagery provider for
+    MapBox Vector Tiles. It uses OpenLayers to render the tiles and handles
+    native OpenLayers style functions.
+  * Update to CesiumJS 1.77 and OpenLayers 6.5
+  * Expose the resolution from/to distance functions in core
+
+# v 2.11.3 - 2020-09-01
+
+* Changes
+  * Port to OpenLayers 6.4, fix grabbing issue.
+
+# v 2.11.1 - 2020-08-04
+
+* Changes
+  * Remove wrong pixelSize param from getPixelDimensions function
+
+# v 2.11 - 2020-08-04
+
+* Changes
+  * Handle some custom matrix size for WMTS
+  * Update to Cesium 1.70 and add peer dependencies
+  * Add missing 'result' param to getPixelDimensions function
+
+# v 2.10 - 2019-10-10
+
+* Changes
+  * Add a WMTS example.
+  * Port to Cesium 1.62.
+  * Port to OpenLayers 6 while staying compatible with OpenLayers 5.
+
 # v 2.9 - 2019-04-05
 
 * Changes
@@ -305,9 +384,9 @@
     curves instead of straight lines. This functionality can be activated by
     setting the olcs.polygon_kind property to 'rectangle' on the OpenLayers
     geometry.
-  * Add support to set a proxy for Cesium to load layer not accessible 
-    due to missing CORS headers (eg. when user can't modify configuration 
-    of the mapservice used). This functionality can be activated by 
+  * Add support to set a proxy for Cesium to load layer not accessible
+    due to missing CORS headers (eg. when user can't modify configuration
+    of the mapservice used). This functionality can be activated by
     setting the olcs.proxy property to the OpenLayers source.
 
 ## v 1.15 - 2016-04-28
@@ -415,7 +494,7 @@
     * Core static functions for converting from OL3 features to Cesium primitives
       have been moved into a class designed for inheritance.
       The `olcs.FeatureConverter` may be extended and passed as a parameter of
-      the `olcs.VectorSynchronizer` constructor. See the synchronizer function 
+      the `olcs.VectorSynchronizer` constructor. See the synchronizer function
       parameter of the `olcs.OLCesium` constructor. Subclassing requires that
       the subclass and the library code be compiled together.
       One way of migrating existing code is to define a global variable:
